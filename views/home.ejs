@@ -5,26 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafio Fullstack</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" href="/css/base.css">
 </head>
 <body>
-    <h1>Guia Perguntas</h1>
-    <hr>
-    <h3>Lista de Perguntas</h3>
+    
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            JoGeek
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="//github.io/jo_geek" target="_blank">Home</a>
+          <a href="http://stackoverflow.com/users/4084003/" target="_blank">Novo Questionário</a>
+        </div>
+    </div>
 
-    <p>Nome: <%= nome %></p>
-    <p>Linguagem Favorita: <%= lang %></p>
-
-    <% if(msg){ %>
-        <h3>Isso é uma mensagem de erro</h3>
-    <% } else { %>
-        <h3>Nenhum erro</h3>
-    <% } %>
-
-    <% produtos.forEach(function(produto) { %>
-        <hr>
-        <h4><%= produto.nome %></h4>
-        <h5><%= produto.preco %></h5>
-    <% }) %>
+    <div class="container-fluid">
+        <div class="row my-3">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <h3>Teste</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <h3>Teste</h3>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <h3>Teste</h3>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

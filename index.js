@@ -15,7 +15,7 @@ app.get("/",(req,res) => {
         {nome: "Leite", preco: 3.5}
     ]
 
-    res.render("index",{
+    res.render("home",{
         nome: nome,
         lang: lang,
         empresa: "inova GS",
