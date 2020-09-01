@@ -5,24 +5,20 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 
 app.get("/",(req,res) => {
-    var nome = req.params.nome;
-    var lang = req.params.lang;
-    var exibirMsg = false;
 
-    var produtos = [
-        {nome: "Doritos", preco: 3.14},
-        {nome: "Coca-Cola", preco: 5.0},
-        {nome: "Leite", preco: 3.5}
+    var questionarios = [
+        {titulo: "Doritos"},
+        {titulo: "Coca-Cola"},
+        {titulo: "Leite"}
     ]
 
     res.render("home",{
-        nome: nome,
-        lang: lang,
-        empresa: "inova GS",
-        inscritos: 8000,
-        msg: exibirMsg,
-        produtos: produtos
+        questionarios: questionarios
     });
+});
+
+app.get("/novo",(req,res) => {
+    res.render("create");
 });
 
 app.listen(8080,() => {

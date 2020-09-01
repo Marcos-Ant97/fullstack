@@ -14,7 +14,7 @@
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
           <div class="nav-title">
-            JoGeek
+            Agrotools
           </div>
         </div>
         <div class="nav-btn">
@@ -26,22 +26,19 @@
         </div>
         
         <div class="nav-links">
-          <a href="//github.io/jo_geek" target="_blank">Home</a>
-          <a href="http://stackoverflow.com/users/4084003/" target="_blank">Novo Questionário</a>
+          <a href="/">Home</a>
+          <a href="/novo">Novo Questionário</a>
         </div>
     </div>
 
     <div class="container-fluid">
-        <div class="row my-3">
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <h3>Teste</h3>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <h3>Teste</h3>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                <h3>Teste</h3>
-            </div>
+        <h3>Questionários</h3>
+        <div class="row">
+            <% questionarios.forEach(function(questionario) { %>
+                <div class="col-xs-12 shadow-sm bg-white my-1">
+                    <h4><%= questionario.titulo %></h4>
+                </div>
+            <% }) %>
         </div>
     </div>
 

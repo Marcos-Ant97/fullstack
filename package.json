@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Marcos-Ant97/fullstack#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "json-server": "^0.16.1"
   }
 }
