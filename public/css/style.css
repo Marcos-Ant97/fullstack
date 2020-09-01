@@ -108,3 +108,11 @@
     height: 2.2em;
     padding: 0 0.4em;
   }
+
+  .btn-nova-pergunta{
+    cursor: pointer;
+  }
+
+  .btn-remover-pergunta{
+    cursor: pointer;
+  }

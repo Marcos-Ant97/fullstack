@@ -1,12 +1,18 @@
 const express = require("express");
-const jsonServer = require("json-server");
-const fetch = require("node-fetch");
+const bodyParser = require("body-parser");
 const app = express();
+
+const fs = require("fs");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
-app.use('/db',jsonServer.router('db/db.json'));
 
+const routes = require("./routes/routes.js")(app, fs);
+
+/*
 app.get("/",(req,res) => {
 
     /*let url = "localhost:8080/questionarios";
@@ -15,7 +21,7 @@ app.get("/",(req,res) => {
 
     fetch(url, settings).then(res => res.json()).then((json) => {
         console.log(json);
-    });*/
+    });
 
     //var questionarios = ;
 
@@ -26,7 +32,7 @@ app.get("/",(req,res) => {
 
 app.get("/novo",(req,res) => {
     res.render("create");
-});
+});*/
 
 app.listen(8080,() => {
     console.log("app rodando");
