@@ -100,3 +100,11 @@
   .bg-white{
       background-color: #fff;
   }
+
+  .input-pergunta {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #afafaf;
+    height: 2.2em;
+    padding: 0 0.4em;
+  }
