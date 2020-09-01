@@ -13,7 +13,7 @@ function novaPergunta(){
     let divPerguntas = document.getElementById('blocoPerguntas');
 
     let colWrap = document.createElement('div');
-    colWrap.className = 'col-xs-12 col-sm-12 col-md-6 mb-3';
+    colWrap.className = 'col-xs-12 mb-4';
 
     let rowWrap = document.createElement('div');
     rowWrap.className = 'row';
@@ -44,5 +44,7 @@ function novaPergunta(){
 }
 
 function removerPergunta(){
+
+    this.parentElement.parentElement.parentElement.remove();
 
 }
