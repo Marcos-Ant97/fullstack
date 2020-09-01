@@ -3,6 +3,7 @@ const app = express();
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
+server.use('/db', jsonServer.router('db.json'));
 
 app.get("/",(req,res) => {
 
