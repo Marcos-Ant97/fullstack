@@ -41,15 +41,17 @@
                     <span class="autorQuestionario">Autor: <%= questionario.usuario %></span>
                     <span class="statusQuestionario">Status: 
                     <%
+                      var temResposta = false;
                       respostas.forEach(function(resposta) {
                         if(resposta.questionario_id == questionario.id){
-                          if(resposta.respostas.length > 0){
-                            %>Respondido<%
-                          } else {
-                            %>Aberto<%
-                          }
+                          temResposta = true;
                         }
-                      })
+                      });
+                      if(temResposta){
+                        %>Respondido <%
+                      } else {
+                        %>Aberto <%
+                      }
                     %>
                     </span>
                 </div>
