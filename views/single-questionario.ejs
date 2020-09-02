@@ -34,19 +34,23 @@
     <div class="container-fluid">
         <h2><%= questionarios.titulo %></h2>
         <div class="row shadow-sm bg-white mb-3">
-            <% questionarios.perguntas.forEach(function(pergunta) { %>
+            <% 
+            var i = 0;
+            questionarios.perguntas.forEach(function(pergunta) { %>
                 <div class="col-xs-12 mb-4">
                     <div class="row">
                         <div class="col-xs-12">
                             <h3><%= pergunta.pergunta %></h3>
-                            <h5><%
-                                    
+                            <% if(respostas.respostas.length > 0){ %>
+                            <h5><%=
+                                    respostas.respostas[i].resposta;
                                 %>
                             </h5>
+                            <% } %>
                         </div>
                     </div>
                 </div>
-            <% }) %>
+            <% i++ }) %>
         </div>
     </div>
 
