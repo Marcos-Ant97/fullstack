@@ -25,8 +25,6 @@ const questionarioRoutes = (app, fs) => {
                 throw err;
             }
 
-            //res.send(JSON.parse(data).questionarios[req.params.id])
-
             res.render("single-questionario", {
                  questionarios: JSON.parse(data).questionarios[req.params.id]
             });
