@@ -179,3 +179,11 @@
     font-size: 0.7rem;
     color: #777;
   }
+
+  .btn-criar-questionario {
+    border: none;
+    color: #fff;
+    background-color: green;
+    font-size: 18px;
+    float: right;
+  }
