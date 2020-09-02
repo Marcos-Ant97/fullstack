@@ -32,15 +32,16 @@
     </div>
 
     <div class="container-fluid">
-        <h2>Questionários</h2>
-        <div class="row">
-            <% questionarios.forEach(function(questionario) { %>
-              <a class="linkQuestionario" href="/questionarios/<%= questionario.id %>">
-                <div class="itemQuestionario col-xs-12 bg-white">
-                    <span class="tituloQuestionario"><%= questionario.titulo %></span>
-                    <span class="autorQuestionario">Autor: <%= questionario.usuario %></span>
+        <h2><%= questionarios.titulo %></h2>
+        <div class="row shadow-sm bg-white mb-3">
+            <% questionarios.perguntas.forEach(function(pergunta) { %>
+                <div class="col-xs-12 mb-4">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3><%= pergunta.pergunta %></h3>
+                        </div>
+                    </div>
                 </div>
-              </a>
             <% }) %>
         </div>
     </div>

@@ -109,6 +109,11 @@
     padding: 0 0.4em;
   }
 
+  .input-pergunta:focus {
+    outline: none;
+    border-bottom: 2px solid;
+  }
+
   .btn{
     margin-left: 0;
     border-radius: 1px;
