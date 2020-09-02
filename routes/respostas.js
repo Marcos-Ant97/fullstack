@@ -1,6 +1,6 @@
 const questionarioRoutes = (app, fs) => {
     const respostasPath = "./data/respostas.json";
-    const questionarioPath = "./data/respostas.json";
+    const questionarioPath = "./data/questionarios.json";
 
     // READ ALL
     app.get("/respostas", async (req, res) => {
@@ -24,10 +24,50 @@ const questionarioRoutes = (app, fs) => {
 
             res.send(JSON.parse(data).respostas[req.params.id])
 
-            // res.render("home", {
-            //     questionarios: JSON.parse(data).questionarios[req.params.id]
-            // });
         });
+    });
+
+    app.get("/responder/:id", (req, res) => {
+        fs.readFile(questionarioPath, "utf8", (err, data) => {
+            if (err) {
+                throw err;
+            }
+
+            questionario = JSON.parse(data).questionarios.find((element) => element.id == req.params.id)
+
+            res.render("responder_questionario", {
+                questionario: questionario,
+                id: req.params.id
+            });
+        });
+    });
+
+    app.post("/responder/:id", (req, res) => {
+        fs.readFile(respostasPath, "utf8", (err, data) => {
+            if (err) {
+                throw err;
+            }
+
+            var date = new Date(Date.now())
+
+            var dataToWrite = {
+                questionario_id: req.params.id,
+                created_at: date,
+                respostas: req.body.respostas
+            }
+
+            parsedData = JSON.parse(data)
+            parsedData.respostas.push(dataToWrite)
+
+            console.log(parsedData)
+
+
+            fs.writeFile(respostasPath, JSON.stringify(parsedData), "utf8", () => {
+                res.redirect('/questionarios')
+            });
+
+        });
+
     });
 
     // CREATE

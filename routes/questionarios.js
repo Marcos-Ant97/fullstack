@@ -91,7 +91,7 @@ const questionarioRoutes = (app, fs) => {
             var dataToWrite = {
                 id: novoQuestionarioId,
                 titulo: req.body.titulo,
-                usuario: "Junior",
+                usuario: "Marcos",
                 created_at: date,
                 perguntas: req.body.pergunta
             }
@@ -110,9 +110,9 @@ const questionarioRoutes = (app, fs) => {
     });
 
     // CREATE
-    app.post("/questionarios", (req, res) => {
+    /*app.post("/questionarios", (req, res) => {
 
-    });
+    });*/
 };
 
 module.exports = questionarioRoutes;

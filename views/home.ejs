@@ -34,19 +34,26 @@
     <div class="container-fluid">
         <h2>Questionários</h2>
         <div class="row">
-            <% questionarios.forEach(function(questionario) { %>
-              <a class="linkQuestionario" href="/questionarios/<%= questionario.id %>">
+            <% questionarios.forEach(function(questionario) { 
+              var temResposta = false;
+                respostas.forEach(function(resposta) {
+                  if(resposta.questionario_id == questionario.id){
+                    temResposta = true;
+                  }
+                });
+              %>
+              <a class="linkQuestionario" href="<%
+              if(temResposta){%>
+                /questionarios/<%= questionario.id %>
+              <% } else { %>
+                /responder/<%= questionario.id %>
+              <% } %>">
                 <div class="itemQuestionario col-xs-12 bg-white">
                     <span class="tituloQuestionario"><%= questionario.titulo %></span>
                     <span class="autorQuestionario">Autor: <%= questionario.usuario %></span>
                     <span class="statusQuestionario">Status: 
                     <%
-                      var temResposta = false;
-                      respostas.forEach(function(resposta) {
-                        if(resposta.questionario_id == questionario.id){
-                          temResposta = true;
-                        }
-                      });
+                      
                       if(temResposta){
                         %>Respondido <%
                       } else {

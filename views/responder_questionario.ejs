@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Fullstack</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/flexboxgrid.css">
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body>
+
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                Agrotools
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="nav-links">
+            <a href="/questionarios">Home</a>
+            <a href="/novo">Novo Questionário</a>
+        </div>
+    </div>
+
+    <div class="container-fluid pb-4">
+        <h2>Responder Questionário</h2>
+        <form action="/responder/<%=id%>" method="post" class="row shadow-sm bg-white mb-3">
+            <div class="w-100" id="blocoPerguntas">
+                <div class="col-xs-12 my-4">
+                    <h3><%= questionario.titulo %></h3>
+                    <span>Criado por: <%= questionario.usuario %></span>
+                </div>
+                <div class="col-xs-12 my-4">
+                    <h4>Respostas</h4>
+                    <span>Escreva abaixo as respostas deste questionário</span>
+                </div>
+                <%
+                var i=0; 
+                if(Array.isArray(questionario.perguntas)){
+                    questionario.perguntas.forEach(function(pergunta){ %>
+                        <div class="col-xs-12 mb-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h5><%= questionario.perguntas[i] %>:</h5>
+                                    <input class="input-pergunta" type="text" name="respostas" />
+                                </div>
+                            </div>
+                        </div>
+                    <% i++ })
+                } else { %>
+                    <div class="col-xs-12 mb-4">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5><%= questionario.perguntas %>:</h5>
+                                <input class="input-pergunta" type="text" name="respostas" />
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <div class="col-xs-12 my-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input class="btn btn-enviar-respostas" type="submit" value="Enviar Respostas">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>
