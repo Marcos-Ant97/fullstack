@@ -59,9 +59,6 @@ const questionarioRoutes = (app, fs) => {
             parsedData = JSON.parse(data)
             parsedData.respostas.push(dataToWrite)
 
-            console.log(parsedData)
-
-
             fs.writeFile(respostasPath, JSON.stringify(parsedData), "utf8", () => {
                 res.redirect('/questionarios')
             });

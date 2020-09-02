@@ -3,7 +3,7 @@ const respostasRoutes = require("./respostas.js")
 
 const appRouter = (app, fs) => {
   app.get("/", (req, res) => {
-    res.send("welcome to the development api-server");
+    res.redirect("/questionarios");
   });
   app.get("/novo", (req, res) => {
     res.render("create");

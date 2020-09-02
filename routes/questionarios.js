@@ -82,8 +82,6 @@ const questionarioRoutes = (app, fs) => {
                 throw err;
             }
 
-            console.log(data)
-
             let novoQuestionarioId = Object.keys(JSON.parse(data).questionarios).length + 1;
 
             var date = new Date(Date.now())
@@ -101,7 +99,6 @@ const questionarioRoutes = (app, fs) => {
 
 
              fs.writeFile(dataPath, JSON.stringify(parsedData), "utf8", () => {
-                 alert("Questioanrio criado com sucesso!")
                  res.redirect('/questionarios')
              });
 
