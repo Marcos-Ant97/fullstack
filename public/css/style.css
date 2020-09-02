@@ -109,10 +109,62 @@
     padding: 0 0.4em;
   }
 
-  .btn-nova-pergunta{
+  .btn{
+    margin-left: 0;
+    border-radius: 1px;
+    transition: all 0.3s ease-in-out;
+    padding: 0.4em 0.7em;
     cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  .btn:hover{
+    margin-left: 1px;
+    padding: 0.45em 0.75em;
+    box-shadow: -0.1rem 0.525rem 0.85rem rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-nova-pergunta{
+    background-color: #43d97a;
+    color: white;
   }
 
   .btn-remover-pergunta{
     cursor: pointer;
+  }
+
+  .itemQuestionario{
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  .itemQuestionario:hover{
+    margin-left: 5px;
+    margin-right: -5px;
+    margin-top: -0.20rem;
+    padding: 1.1rem;
+    box-shadow: -0.1rem 0.525rem 0.85rem rgba(0, 0, 0, 0.1);
+  }
+
+  .linkQuestionario{
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .tituloQuestionario {
+    display: block;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+
+  .autorQuestionario {
+    display: block;
+    font-size: 0.7rem;
+    color: #777;
   }

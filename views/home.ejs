@@ -26,18 +26,21 @@
         </div>
         
         <div class="nav-links">
-          <a href="/">Home</a>
+          <a href="/questionarios">Home</a>
           <a href="/novo">Novo Questionário</a>
         </div>
     </div>
 
     <div class="container-fluid">
-        <h3>Questionários</h3>
+        <h2>Questionários</h2>
         <div class="row">
             <% questionarios.forEach(function(questionario) { %>
-                <div class="col-xs-12 shadow-sm bg-white my-1">
-                    <h4><%= questionario.titulo %></h4>
+              <a class="linkQuestionario" href="/questionarios/">
+                <div class="itemQuestionario col-xs-12 bg-white">
+                    <span class="tituloQuestionario"><%= questionario.titulo %></span>
+                    <span class="autorQuestionario">Autor: <%= questionario.usuario %></span>
                 </div>
+              </a>
             <% }) %>
         </div>
     </div>
