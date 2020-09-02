@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Fullstack</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/flexboxgrid.css">
-    <link rel="stylesheet" href="/css/base.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio Fullstack</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/flexboxgrid.css">
+  <link rel="stylesheet" href="/css/base.css">
 </head>
+
 <body>
-    
-    <div class="nav">
-        <input type="checkbox" id="nav-check">
-        <div class="nav-header">
-          <div class="nav-title">
-            Agrotools
-          </div>
-        </div>
-        <div class="nav-btn">
-          <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </div>
-        
-        <div class="nav-links">
-          <a href="/questionarios">Home</a>
-          <a href="/novo">Novo Questionário</a>
-        </div>
+
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Agrotools
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
     </div>
 
-    <div class="container-fluid pb-4">
-      <h2>Novo Questionário</h2>
-      <div class="row shadow-sm bg-white mb-3">
-        <div class="w-100" id="blocoPerguntas">
-          <div class="col-xs-12 my-4">
-            <h3>Título</h3>
-            <span>Dê um título a este questionário</span>
-          </div>
-          <div class="col-xs-12 mb-4">
-            <div class="row">
-              <div class="col-xs-12">
-                <input name="titulo" class="input-pergunta" type="text">
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 my-4">
-            <h3>Perguntas</h3>
-            <span>Escreva abaixo as perguntas deste questionário (deve conter no mínimo uma pergunta)</span>
-          </div>
-          <div class="col-xs-12 mb-4">
-            <div class="row">
-              <div class="col-xs-12">
-                <input class="input-pergunta" type="text">
-              </div>
+    <div class="nav-links">
+      <a href="/questionarios">Home</a>
+      <a href="/novo">Novo Questionário</a>
+    </div>
+  </div>
+
+  <div class="container-fluid pb-4">
+    <h2>Novo Questionário</h2>
+    <form action="/novo" method="post" class="row shadow-sm bg-white mb-3">
+      <div class="w-100" id="blocoPerguntas">
+        <div class="col-xs-12 my-4">
+          <h3>Título</h3>
+          <span>Dê um título a este questionário</span>
+        </div>
+        <div class="col-xs-12 mb-4">
+          <div class="row">
+            <div class="col-xs-12">
+              <input name="titulo" class="input-pergunta" type="text">
             </div>
           </div>
         </div>
         <div class="col-xs-12 my-4">
+          <h3>Perguntas</h3>
+          <span>Escreva abaixo as perguntas deste questionário (deve conter no mínimo uma pergunta)</span>
+        </div>
+        <div class="col-xs-12 mb-4">
           <div class="row">
             <div class="col-xs-12">
-              <a class="btn btn-nova-pergunta">Nova Pergunta</a>
             </div>
           </div>
         </div>
       </div>
-      
-    </div>
+      <div class="col-xs-12 my-4">
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="btn btn-nova-pergunta">Nova Pergunta</a>
+            <input type="submit" value="accept">
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
 
   <script src="/js/script.js"></script>
 
 </body>
+
 </html>

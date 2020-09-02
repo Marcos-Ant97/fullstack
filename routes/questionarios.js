@@ -7,7 +7,7 @@ const questionarioRoutes = (app, fs) => {
 
         let getLocation = require('../api-calls/getLocation')
         let location = await getLocation();
-        
+
 
         fs.readFile(dataPath, "utf8", (err, data) => {
             if (err) {
@@ -25,7 +25,7 @@ const questionarioRoutes = (app, fs) => {
                 });
 
             })
-            
+
         });
     });
 
@@ -41,8 +41,8 @@ const questionarioRoutes = (app, fs) => {
                 }
 
                 res.render("single-questionario", {
-                    questionarios: JSON.parse(data).questionarios[req.params.id],
-                    respostas: JSON.parse(resp).respostas[req.params.id]
+                    questionarios: JSON.parse(data).questionarios[req.params.id - 1],
+                    respostas: JSON.parse(resp).respostas[req.params.id - 1]
                 });
 
             })
@@ -50,17 +50,68 @@ const questionarioRoutes = (app, fs) => {
         });
     });
 
+    app.get("/novo", (req, res) => {
+        var titulo
+        var usuario = "Carlos"
+
+        const addPergunta = (array) => {
+            return array = array.push({
+                pergunta: ""
+            })
+        }
+
+        var query_perguntas = [
+            {
+                pergunta: ""
+            }
+        ]
+
+        res.render("create", {
+            perguntasList: query_perguntas,
+            titulo: titulo,
+            user: usuario,
+            add: addPergunta
+        });
+    });
+
+    app.post("/novo", (req, res) => {
+        var fs = require('fs')
+
+        fs.readFile(dataPath, "utf8", (err, data) => {
+            if (err) {
+                throw err;
+            }
+
+            console.log(data)
+
+            let novoQuestionarioId = Object.keys(JSON.parse(data).questionarios).length + 1;
+
+            var date = new Date(Date.now())
+
+            var dataToWrite = {
+                id: novoQuestionarioId,
+                titulo: req.body.titulo,
+                usuario: "Junior",
+                created_at: date,
+                perguntas: req.body.pergunta
+            }
+
+            parsedData = JSON.parse(data)
+            parsedData.questionarios.push(dataToWrite)
+
+
+             fs.writeFile(dataPath, JSON.stringify(parsedData), "utf8", () => {
+                 alert("Questioanrio criado com sucesso!")
+                 res.redirect('/questionarios')
+             });
+
+        });
+
+    });
+
     // CREATE
     app.post("/questionarios", (req, res) => {
-        readFile((data) => {
-            const novoQuestionarioId = Object.keys(data).length + 1;
 
-            data[novoQuestionarioId] = JSON.parse(req.body.data);
-
-            writeFile(JSON.stringify(data, null, 2), () => {
-                res.status(200).send("Novo questionario adicionado");
-            });
-        }, true);
     });
 };
 
