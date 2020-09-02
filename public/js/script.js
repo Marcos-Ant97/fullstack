@@ -26,6 +26,7 @@ function novaPergunta(){
 
     let inputPergunta = document.createElement('input');
     inputPergunta.className = 'input-pergunta';
+    inputPergunta.name = 'pergunta';
     inputPergunta.type = 'text';
 
     let botaoRemover = document.createElement('a');
