@@ -39,6 +39,19 @@
                 <div class="itemQuestionario col-xs-12 bg-white">
                     <span class="tituloQuestionario"><%= questionario.titulo %></span>
                     <span class="autorQuestionario">Autor: <%= questionario.usuario %></span>
+                    <span class="statusQuestionario">Status: 
+                    <%
+                      respostas.forEach(function(resposta) {
+                        if(resposta.questionario_id == questionario.id){
+                          if(resposta.respostas.length > 0){
+                            %>Respondido<%
+                          } else {
+                            %>Aberto<%
+                          }
+                        }
+                      })
+                    %>
+                    </span>
                 </div>
               </a>
             <% }) %>

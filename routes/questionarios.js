@@ -1,5 +1,6 @@
 const questionarioRoutes = (app, fs) => {
     const dataPath = "./data/questionarios.json";
+    const respPath = "./data/respostas.json";
 
     // READ ALL
     app.get("/questionarios", async (req, res) => {
@@ -13,9 +14,18 @@ const questionarioRoutes = (app, fs) => {
                 throw err;
             }
 
-            res.render("home", {
-                questionarios: JSON.parse(data).questionarios
-            });
+            fs.readFile(respPath, "utf8", (err, resp) => {
+                if (err) {
+                    throw err;
+                }
+
+                res.render("home", {
+                    questionarios: JSON.parse(data).questionarios,
+                    respostas: JSON.parse(resp).respostas
+                });
+
+            })
+            
         });
     });
 
