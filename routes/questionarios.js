@@ -35,9 +35,18 @@ const questionarioRoutes = (app, fs) => {
                 throw err;
             }
 
-            res.render("single-questionario", {
-                 questionarios: JSON.parse(data).questionarios[req.params.id]
-            });
+            fs.readFile(respPath, "utf8", (err, resp) => {
+                if (err) {
+                    throw err;
+                }
+
+                res.render("single-questionario", {
+                    questionarios: JSON.parse(data).questionarios[req.params.id],
+                    respostas: JSON.parse(resp).respostas[req.params.id]
+                });
+
+            })
+
         });
     });
 
